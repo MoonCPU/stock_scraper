@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-color: rgb(240, 240, 240);
+}
+
+.container {
+    padding: 50px;
+    max-width: 1200px;
+    margin: auto;
+}
+

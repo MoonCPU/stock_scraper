@@ -1,0 +1,11 @@
+
+
+
+<form class="flex flex-row" (ngSubmit)="getStockData(stockCode)">
+    <div class="mr-2">
+        <input class="w-60 p-4 rounded-lg shadow-md"  placeholder="Ticket da ação. Ex: CMIG4" [(ngModel)]="stockCode" name="stockCode" required>        
+    </div>
+    <div>
+        <button class="p-4 bg-blue-500 hover:bg-blue-600 rounded-lg shadow-md transition duration-300 ease-in-out" type="submit">Get Stock Data</button>
+    </div>
+</form>
