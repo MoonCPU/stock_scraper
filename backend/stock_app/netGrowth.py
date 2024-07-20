@@ -1,9 +1,16 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+import os
+from dotenv import load_dotenv
+
+load_dotenv() 
+
+INVESTIDOR10_API_ACOES = os.getenv('INVESTIDOR10_API_ACOES')
+INVESTIDOR10_API_NETGROWTH = os.getenv('INVESTIDOR10_API_NETGROWTH')
 
 def fetch_company_id(stock_code):
-    url = f'https://investidor10.com.br/acoes/{stock_code}/'
+    url = f'{INVESTIDOR10_API_ACOES}/{stock_code}/'
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
     }
@@ -26,7 +33,7 @@ def scrape_netGrowth(stock_code, period=3650):
     if not company_id:
         raise ValueError(f"Company ID not found for stock code: {stock_code}")
     #call the api to get the history of network growth in the last 10 years (3650 days)
-    url = f'https://investidor10.com.br/api/balancos/ativospassivos/chart/{company_id}/{period}/'
+    url = f'{INVESTIDOR10_API_NETGROWTH}/{company_id}/{period}/'
 
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'

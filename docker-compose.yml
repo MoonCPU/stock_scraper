@@ -2,8 +2,7 @@ version: '3.8'
 
 services:
   backend:
-    build:
-      context: ./backend
+    image: moon20/web-scraper:1.0.1
     ports:
       - "8000:8000"
   
@@ -12,3 +11,4 @@ services:
       context: ./frontend
     ports:
       - "4200:80"
+

@@ -1,8 +1,14 @@
 import requests
 from bs4 import BeautifulSoup
+import os
+from dotenv import load_dotenv
+
+load_dotenv() 
+
+INVESTIDOR10_API_ACOES = os.getenv('INVESTIDOR10_API_ACOES')
 
 def scrape_indicators(stock_code):
-    url = f'https://investidor10.com.br/acoes/{stock_code}/'
+    url = f'{INVESTIDOR10_API_ACOES}/{stock_code}/'
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
     }
