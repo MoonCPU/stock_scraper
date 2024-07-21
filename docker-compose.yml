@@ -1,14 +1,22 @@
-version: '3.8'
+version: '3'
 
 services:
-  backend:
-    image: moon20/web-scraper:1.0.1
-    ports:
-      - "8000:8000"
-  
-  frontend:
+  web:
     build:
-      context: ./frontend
-    ports:
-      - "4200:80"
+      context: ./backend
+    container_name: django_app
+    restart: always
+    env_file:
+      - ./backend/.env
+    expose:
+      - "8000"
 
+  nginx:
+    build:
+      context: ./nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - web

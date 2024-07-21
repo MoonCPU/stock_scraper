@@ -12,4 +12,4 @@ ENV PYTHONUNBUFFERED=1
 
 COPY .env .env
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["gunicorn", "--chdir", "stock_project", "--bind", "0.0.0.0:8000", "stock_project.wsgi:application"]
