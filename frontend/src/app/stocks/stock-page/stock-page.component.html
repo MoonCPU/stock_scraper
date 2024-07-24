@@ -1,11 +1,37 @@
-
-
-
 <form class="flex flex-row" (ngSubmit)="getStockData(stockCode)">
     <div class="mr-2">
-        <input class="w-60 p-4 rounded-lg shadow-md"  placeholder="Ticket da ação. Ex: CMIG4" [(ngModel)]="stockCode" name="stockCode" required>        
+      <input class="w-60 p-4 rounded-lg shadow-md" placeholder="Ticket da ação. Ex: CMIG4" [(ngModel)]="stockCode" name="stockCode" required>        
     </div>
     <div>
-        <button class="p-4 bg-blue-500 hover:bg-blue-600 rounded-lg shadow-md transition duration-300 ease-in-out" type="submit">Get Stock Data</button>
+      <button class="p-4 bg-blue-500 hover:bg-blue-600 rounded-lg shadow-md transition duration-300 ease-in-out" type="submit">Get Stock Data</button>
     </div>
-</form>
+  </form>
+  
+  <div *ngIf="goodIndicators.length || mediumIndicators.length || badIndicators.length">
+    <div>
+      <h2>Good Indicators</h2>
+      <div *ngFor="let indicator of goodIndicators">
+        <mat-card class="good-indicator">
+          {{ indicator.name }}: {{ indicator.value }}
+        </mat-card>
+      </div>
+    </div>
+  
+    <div>
+      <h2>Medium Indicators</h2>
+      <div *ngFor="let indicator of mediumIndicators">
+        <mat-card class="medium-indicator">
+          {{ indicator.name }}: {{ indicator.value }}
+        </mat-card>
+      </div>
+    </div>
+  
+    <div>
+      <h2>Bad Indicators</h2>
+      <div *ngFor="let indicator of badIndicators">
+        <mat-card class="bad-indicator">
+          {{ indicator.name }}: {{ indicator.value }}
+        </mat-card>
+      </div>
+    </div>
+  </div>

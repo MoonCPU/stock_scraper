@@ -1,0 +1,16 @@
+
+
+.good-indicator {
+    background-color: green;
+    color: white;
+}
+
+.medium-indicator {
+    background-color: yellow;
+    color: black;
+}
+
+.bad-indicator {
+    background-color: red;
+    color: white;
+}
